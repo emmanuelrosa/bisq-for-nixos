@@ -11,23 +11,24 @@
 
     packages.x86_64-linux = let
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in {
-      bisq-desktop = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/bisq-desktop {
-        makeBinPath = nixpkgs.legacyPackages.x86_64-linux.lib.makeBinPath;
-        openjdk11 = nixpkgs.legacyPackages.x86_64-linux.openjdk11.override { enableJavaFX = true; };
+      bisq-desktop = pkgs.callPackage ./pkgs/bisq-desktop {
+        makeBinPath = pkgs.lib.makeBinPath;
+        openjdk11 = pkgs.openjdk11.override { enableJavaFX = true; };
       };
 
-      bisq-desktop-appimage-entrypoint = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/bisq-desktop-appimage-entrypoint {
-        bisq-desktop = self.packages.x86_64-linux.bisq-desktop;
+      bisq-desktop-appimage-entrypoint = pkgs.callPackage ./pkgs/bisq-desktop-appimage-entrypoint {
+        bisq-desktop = self.packages."${system}".bisq-desktop;
       };
 
-      bisq-desktop-appimage = nix-appimage.bundlers.x86_64-linux.default self.packages.x86_64-linux.bisq-desktop-appimage-entrypoint;
+      bisq-desktop-appimage = nix-appimage.bundlers."${system}".default self.packages."${system}".bisq-desktop-appimage-entrypoint;
 
-      bisq-desktop-appimage-wrapper = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/bisq-desktop-appimage-wrapper {
-        bisqAppImage = self.packages.x86_64-linux.bisq-desktop-appimage;
+      bisq-desktop-appimage-wrapper = pkgs.callPackage ./pkgs/bisq-desktop-appimage-wrapper {
+        bisqAppImage = self.packages."${system}".bisq-desktop-appimage;
       };
 
-      default = self.packages.x86_64-linux.bisq-desktop;
+      default = self.packages."${system}".bisq-desktop;
     };
 
   };
