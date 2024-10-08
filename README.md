@@ -19,6 +19,8 @@ cp ./result ~/Bisq.AppImage
 
 It's a heavy-weight at ~900 MB, but it's worth keeping it around. Go ahead and test it to make sure it works for you.
 
+NOTE: The AppImage currently doesn't support HiDPI displays. I have plan for that, so stay tuned.
+
 Once you have your fallback in place, you may choose to add `bisq-desktop` from this Nix flake instead of from Nixpkgs. Again, since this Nix flake pins Nixpkgs, I expect the package to build just fine until OpenJDK 11 is purged from the NixOS build cache. I have no idea when that may happen. After such an event you'd still be able to build Bisq 1, but you'd also have to build OpenJDK 11 and OpenJFX 11; That would take a while.
 
 As a last resort, I uploaded a copy of the AppImage. You can get it from the releases.
