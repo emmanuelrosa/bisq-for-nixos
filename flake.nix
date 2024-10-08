@@ -17,7 +17,11 @@
         openjdk11 = nixpkgs.legacyPackages.x86_64-linux.openjdk11.override { enableJavaFX = true; };
       };
 
-      bisq-desktop-appimage = nix-appimage.bundlers.x86_64-linux.default self.packages.x86_64-linux.bisq-desktop;
+      bisq-desktop-appimage-entrypoint = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/bisq-desktop-appimage-entrypoint {
+        bisq-desktop = self.packages.x86_64-linux.bisq-desktop;
+      };
+
+      bisq-desktop-appimage = nix-appimage.bundlers.x86_64-linux.default self.packages.x86_64-linux.bisq-desktop-appimage-entrypoint;
       default = self.packages.x86_64-linux.bisq-desktop;
     };
 
