@@ -22,6 +22,11 @@
       };
 
       bisq-desktop-appimage = nix-appimage.bundlers.x86_64-linux.default self.packages.x86_64-linux.bisq-desktop-appimage-entrypoint;
+
+      bisq-desktop-appimage-wrapper = nixpkgs.legacyPackages.x86_64-linux.callPackage ./pkgs/bisq-desktop-appimage-wrapper {
+        bisqAppImage = self.packages.x86_64-linux.bisq-desktop-appimage;
+      };
+
       default = self.packages.x86_64-linux.bisq-desktop;
     };
 
