@@ -32,8 +32,11 @@ Hopefully, you'll be able to build that without having to build OpenJDK 11 too.
 
 It's a heavy-weight at ~900 MB, but it's worth keeping it around. Go ahead and test it to make sure it works for you.
 
+Once you have an AppImage as a fallback, you have a number of options:
 
-Once you have your AppImage, you can go ahead and use it in place of the `bisq-desktop` package from Nixpkgs. If you want a more Nixified experience, use the `bisq-desktop-appimage-wrapper` package with your AppImage:
+- Use the `bisq-desktop` package in this repo: This is a drop-in replacement for the same package in Nixpkgs. The difference is that this one is pinned to a Nixpkgs version which still has OpenJDK 11.
+- Use the AppImage directly: You can go ahead and use it in place of the `bisq-desktop` package.
+- Use the AppImage wrapper package: For a more Nixified experience, use the `bisq-desktop-appimage-wrapper` package with your AppImage to make it installable as an ordinary Nix package:
 
 ```
 environment.systemPackages = [
