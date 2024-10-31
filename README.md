@@ -17,7 +17,7 @@ These are the packages contained in this Nix flake:
 
 ## Next steps
 
-First, you should know that a Nix package for Bisq 2 is on the way (again). See https://github.com/NixOS/nixpkgs/pull/347160. However, in the mean time Bisq 1 is necessary because Bisq 2 has not yet reached feature-parity with Bisq 1.
+First, you should know that a Nix package for Bisq 2 is now in Nixpkgs. However, in the mean time Bisq 1 is necessary because Bisq 2 has not yet reached feature-parity with Bisq 1.
 
 The first thing I recommend is to get yourself a NixOS-friendly bundled version of Bisq 1.
 
@@ -30,7 +30,7 @@ cp ./result /path/to/my/Bisq.AppImage
 
 Hopefully, you'll be able to build that without having to build OpenJDK 11 too.
 
-It's a heavy-weight at ~900 MB, but it's worth keeping it around. Go ahead and test it to make sure it works for you.
+It's a heavy-weight at ~900 MB because it contains *all* of Bisq's dependencies. Go ahead and test it to make sure it works for you.
 
 Once you have an AppImage as a fallback, you have a number of options:
 
