@@ -10,18 +10,16 @@ This Nix flake is a stop-gap solution to keep Bisq 1 alive on NixOS until Bisq 2
 
 These are the packages contained in this Nix flake:
 
-- bisq-desktop: This is a copy of the bisq-desktop package from Nixpkgs, but with a few fixes to make it work as an AppImage.
-- bisq-desktop-appimage: This is a Nix package which builds a NixOS-friendly AppImage out of bisq-desktop.
-- bisq-desktop-appimage-wrapper: This is a wrapper which can be used to install the Bisq AppImage such that it integrates with NixOS like any other application. Meaning, with this package you can launch Bisq from your desktop's application menu.
-- bisq-desktop-appimage-entrypoint: This is a wrapper which acts as the entry point for the Bisq AppImage. This makes it possible to use the AppImage with HiDPI displays by simply setting the environment variable `BISQ_HIDPI=1`.
+- *bisq-desktop*: This is a copy of the bisq-desktop package from Nixpkgs, but with a few fixes to make it work as an AppImage.
+- *bisq-desktop-appimage*: This is a Nix package which builds a NixOS-friendly AppImage out of bisq-desktop.
+- *bisq-desktop-appimage-wrapper*: This is a wrapper which can be used to install the Bisq AppImage such that it integrates with NixOS like any other application. Meaning, with this package you can launch Bisq from your desktop's application menu.
+- *bisq-desktop-appimage-entrypoint*: This is a wrapper which acts as the entry point for the Bisq AppImage. This makes it possible to use the AppImage with HiDPI displays by simply setting the environment variable `BISQ_HIDPI=1`.
 
 ## Next steps
 
 First, you should know that a Nix package for Bisq 2 is now in Nixpkgs. However, in the mean time Bisq 1 is necessary because Bisq 2 has not yet reached feature-parity with Bisq 1.
 
 The first thing I recommend is to get yourself a NixOS-friendly bundled version of Bisq 1.
-
-If you act soon, you should be able to build a NixOS-friendly AppImage right from this Nix flake:
 
 ```
 nix build github:emmanuelrosa/bisq-for-nixos#bisq-desktop-appimage
@@ -48,9 +46,3 @@ environment.systemPackages = [
 ```
 
 With that in place, you don't have to worry about OpenJDK 11 getting booted out of the NixOS build cache.
-
-## What if the apocalypse comes?
-
-Don't worry, I got yo back.
-
-As a last resort, I uploaded a copy of the AppImage. You can get it from the releases. However, that copy of the AppImage doesn't support HiDPI displays. Not to mention you'd have to "trust me, bro." 
