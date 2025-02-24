@@ -42,11 +42,11 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "bisq-desktop";
-  version = "1.9.18";
+  version = "1.9.19";
 
   src = fetchurl {
     url = "https://github.com/bisq-network/bisq/releases/download/v${version}/Bisq-64bit-${version}.deb";
-    sha256 = "sha256-eDt95gmtOqpi00lq04Crsojc/YCA6clgFPvT+SFuaH4=";
+    hash = "sha256-/yv3/5YX/ZdK33Xle9PO/t4cnPyqE1O2C60+yFGQ81Y=";
   };
 
   nativeBuildInputs = [
