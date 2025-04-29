@@ -5,18 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=6710d0dd013f55809648dfb1265b8f85447d30a6";
     nix-appimage.url = "github:ralismark/nix-appimage";
     nix-appimage.inputs.nixpkgs.follows = "nixpkgs";
+    btc-clients-nix.url = "github:emmanuelrosa/btc-clients-nix";
   };
 
-  outputs = { self, nixpkgs, nix-appimage }: {
+  outputs = { self, nixpkgs, nix-appimage, btc-clients-nix }: {
 
     packages.x86_64-linux = let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
     in {
-      bisq-desktop = pkgs.callPackage ./pkgs/bisq-desktop {
-        makeBinPath = pkgs.lib.makeBinPath;
-        openjdk11 = pkgs.openjdk11.override { enableJavaFX = true; };
-      };
+      bisq-desktop = btc-clients-nix.packages."${system}".bisq;
 
       bisq-desktop-appimage-entrypoint = pkgs.callPackage ./pkgs/bisq-desktop-appimage-entrypoint {
         bisq-desktop = self.packages."${system}".bisq-desktop;

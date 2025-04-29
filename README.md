@@ -1,8 +1,14 @@
+# Update
+
+The Bisq 1 package has been moved to https://github.com/emmanuelrosa/btc-clients-nix
+
+If you wish to install the Bisq 1 package, I recommend using that repo instead. However, if you wish to build an AppImage from the package, then this repo is for you.
+
 # The 2024 Bisq situation on NixOS
 
 On the 7th of October 2024, OpenJDK 11 was removed from Nixpkgs on the master branch, due to it being end-of-life. See https://github.com/NixOS/nixpkgs/pull/347149
 
-Bisq 1 depends on OpenJDK 11 and doesn't support any newer version, therefore from this point forward the `bisq-desktop` package in Nixpkgs will no longer build.
+Bisq 1 depends on OpenJFX 11 and doesn't support any newer version, therefore from this point forward the `bisq-desktop` package in Nixpkgs will no longer build.
 
 This Nix flake is a stop-gap solution to keep Bisq 1 alive on NixOS until Bisq 2 can replace it.
 
