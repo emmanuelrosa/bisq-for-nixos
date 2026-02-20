@@ -51,4 +51,4 @@ environment.systemPackages = [
 ];
 ```
 
-With that in place, you don't have to worry about OpenJDK 11 getting booted out of the NixOS build cache.
+With that in place, you don't have to worry about OpenJDK 11 getting booted out of the NixOS build cache. In fact, it's more likely than not that eventually OpenJDK 11 will no longer be available in the build cache; See [this](https://discourse.nixos.org/t/garbage-collecting-cache-nixos-org/74249) post.
