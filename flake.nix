@@ -2,10 +2,11 @@
   description = "Bisq1 on life-support for NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=6710d0dd013f55809648dfb1265b8f85447d30a6";
+    nixpkgs.url = "github:nixos/nixpkgs";
     nix-appimage.url = "github:ralismark/nix-appimage";
     nix-appimage.inputs.nixpkgs.follows = "nixpkgs";
     btc-clients-nix.url = "github:emmanuelrosa/btc-clients-nix";
+    btc-clients-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, nix-appimage, btc-clients-nix }: {
