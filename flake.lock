@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1778940502,
-        "narHash": "sha256-FhV62OMEt760RrhcrVc49bvyAkZBf173GGiYt70RNGE=",
+        "lastModified": 1780152957,
+        "narHash": "sha256-E3ZKKgHbl6abMFzfj+F5U3piqNAUqPVjVDPJ8u51qY4=",
         "owner": "emmanuelrosa",
         "repo": "btc-clients-nix",
-        "rev": "704645cebe5cc1d08b0909a94cb5b447563d379b",
+        "rev": "78e930c57854a19fdd854e5e66aa4a88511db5d5",
         "type": "github"
       },
       "original": {
